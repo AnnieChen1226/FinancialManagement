@@ -2,16 +2,16 @@ library(readxl)
 library(dplyr)
 
 
-data4block.df= read.csv("D:\\test\\廣達\\2382.csv", sep=",", row.names=1)
+data4block.df= read.csv("D:\\test\\翹s繒F\\2382.csv", sep=",", row.names=1)
 names(data4block.df)
 temp1 <- as.matrix(data4block.df) 
-temp2<-c("date","k","d","rsv","sol")
+temp2<-c("date","k","d","rsi","sol")
 head(data4block)
 i<-1
 datelist<-c("date")
 klist<-c("k")
 dlist<-c("d")
-rsvlist<-c("rsv")
+rsilist<-c("rsi")
 sollist<-c("sol")
 while(i<955)
 {
@@ -20,9 +20,9 @@ TureORFalse2<-temp1[i+1,6]
 date<-temp1[i,1]
 k<-temp1[i,2]
 d<-temp1[i,3]
-rsv<-temp1[i,4]
+rsi<-temp1[i,4]
 sol<-''
-mylist <- c(date,k,d,rsv,sol)
+mylist <- c(date,k,d,rsi,sol)
 
 
 if(TureORFalse1!=TureORFalse2)
@@ -33,13 +33,13 @@ if(TureORFalse1!=TureORFalse2)
     print(date)
     print(k)
     print(d)
-    print(rsv)
+    print(rsi)
     print(sol)
     
     datelist <- c(datelist, date)
     klist <- c(klist, k)
     dlist <- c(dlist, d)
-    rsvlist <- c(rsvlist, rsv)
+    rsilist <- c(rsilist, rsi)
     sollist <- c(sollist, sol)
     
     print("--------")
@@ -49,13 +49,13 @@ if(TureORFalse1!=TureORFalse2)
     print(date)
     print(k)
     print(d)
-    print(rsv)
+    print(rsi)
     print(sol)
     
     datelist <- c(datelist, date)
     klist <- c(klist, k)
     dlist <- c(dlist, d)
-    rsvlist <- c(rsvlist, rsv)
+    rsilist <- c(rsilist, rsi)
     sollist <- c(sollist, sol)
     
     
@@ -73,9 +73,9 @@ else
 i<-i+1
 }
 
-Total<-cbind(datelist,klist,dlist,rsvlist,sollist)
+Total<-cbind(datelist,klist,dlist,rsilist,sollist)
 print(Total)
-write.csv(Total,file="D:\\test\\廣達\\2382text.csv",row.names = FALSE)
+write.csv(Total,file="D:\\test\\翹s繒F\\2382text.csv",row.names = FALSE)
 rm(Total)
 rm(data4block.df)
 rm(temp1)
